@@ -12,7 +12,7 @@ st.set_page_config(page_title="Amazon Rating Predictor", layout="wide")
 st.title("🔮 Dự đoán đánh giá sản phẩm Amazon với Linear Regression")
 
 # Tải dữ liệu trực tiếp từ GitHub
-data_url = "amazon.csv"
+data_url = ""
 st.info("📥 Dữ liệu đang được tải từ GitHub...")
 
 try:
