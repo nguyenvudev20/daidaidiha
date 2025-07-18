@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 import requests
 
-st.set_page_config(page_title="Amazon Rating Predictor", layout="wide")
+st.set_page_config(page_title="Amazonr", layout="wide")
 
 st.title("🔮 Dự đoán đánh giá sản phẩm Amazon với Linear Regression")
 
