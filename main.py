@@ -42,6 +42,7 @@ if owner and repo:
         
 # Tải dữ liệu trực tiếp từ GitHub
 data_url = "amazon.csv"
+#https://raw.githubusercontent.com/nguyenvudev20/daidaidiha/refs/heads/main/amazon.csv
 st.info("📥 Dữ liệu đang được tải từ GitHub...")
 
 try:
