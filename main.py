@@ -11,6 +11,34 @@ st.set_page_config(page_title="Amazon Rating Predictor", layout="wide")
 
 st.title("🔮 Dự đoán đánh giá sản phẩm Amazon với Linear Regression")
 
+
+st.set_page_config(page_title="GitHub File Viewer", layout="wide")
+st.title("📂 Xem danh sách file từ GitHub")
+
+# 📝 Nhập thông tin repo
+owner = st.text_input("GitHub Owner", value="nguyenvudev20")
+repo = st.text_input("Repository Name", value="daidaidiha")
+path = st.text_input("Thư mục trong repo (để trống nếu root)", value="")
+
+if owner and repo:
+    github_api_url = f"https://api.github.com/repos/{owner}/{repo}/contents/{path}"
+
+    st.write(f"🔗 [Xem trực tiếp trên GitHub](https://github.com/{owner}/{repo}/tree/main/{path})")
+
+    try:
+        response = requests.get(github_api_url)
+        if response.status_code == 200:
+            files = response.json()
+            for f in files:
+                if f['type'] == 'file':
+                    st.markdown(f"📄 **{f['name']}** - [{f['download_url']}]({f['download_url']})")
+                elif f['type'] == 'dir':
+                    st.markdown(f"📁 **{f['name']}** (Thư mục)")
+        else:
+            st.error(f"❌ Lỗi truy cập GitHub API: {response.status_code}")
+    except Exception as e:
+        st.error(f"⚠️ Lỗi: {e}")
+        
 # Tải dữ liệu trực tiếp từ GitHub
 data_url = "amazon.csv"
 st.info("📥 Dữ liệu đang được tải từ GitHub...")
